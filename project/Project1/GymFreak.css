@@ -16,8 +16,11 @@ img {
 video {
     display: block;
     margin: 0 auto;
+    padding: 10px;
 }
-
+.bcg-full{
+    background: lightgray;
+}
 
 h1, h2, h3 {
     text-align: center;
@@ -47,7 +50,9 @@ footer input[type="text"] {
     margin-bottom: 10px;
     box-sizing: border-box;
 }
-
+.header_2{
+    background: black;
+}
 
 footer button {
     padding: 10px 20px;
