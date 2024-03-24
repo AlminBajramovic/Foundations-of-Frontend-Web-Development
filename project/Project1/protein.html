@@ -5,26 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROTEINS</title>
     <link rel="stylesheet" href="protein.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: lightgray;
+        }
+        .header_2 img {
+            width: 600px;
+            height: 200px;
+        }
+        .bcg-full {
+            background-color: white; 
+            color: black; 
+            padding: 20px; 
+        }
+    </style>
 </head>
 <body>
-    <img src="slike/Gym.PNG" alt="Logo" width="1270" height="200">
-    <h1>GymFreak</h1>
-    <center><p><button><a href="protein.html">PROTEIN</a></button> <button>
-        <a href="creatin.html">CREATIN</a></button> <button><a href="vitamins.html">VITAMINS</a></button>
-        <button><a href="snacks.html">SNACKS</a></button> <button><a href="pre-workout.html">PRE-WORKOUT</a></button></p></center>
-    <h2>PROTEINS</h2>
-    <p>Proteins are crucial building blocks of our bodies, vital for cell growth and regeneration. In the fitness world, proteins play a key role in building muscle mass and supporting recovery after exercise. <br>
+    <div style="background-color: black;">
+        <div class="header_2"><img src="slike/Gym.PNG" alt="Logo"></div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">GymFreak</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="protein.html">PROTEIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="creatin.html">CREATIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vitamins.html">VITAMINS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="snacks.html">SNACKS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pre-workout.html">PRE-WORKOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="bcg-full">
+        <h1>GymFreak</h1>
+        <h2>PROTEINS</h2>
+        <p>Proteins are crucial building blocks of our bodies, vital for cell growth and regeneration. In the fitness world, proteins play a key role in building muscle mass and supporting recovery after exercise. <br>
         GymFreak offers high-quality proteins that will support you in achieving your fitness goals.</p>
-    <h3>1. Whey chocolate flavor</h3>
-    <img src="slike/whey.jpg" alt="whey" width="250" height="250"> 
-    <h3>2. Whey strawberry flavour</h3>
-    <img src="slike/whey2.jpg" alt="whey2" width="250" height="250">
-    <h3>3. Whey vanilla flavour</h3>
-    <img src="slike/whey3.jpg" alt="whey3" width="250" height="250">
-    <p>For more flavours click on this <a href="https://ba.proteini.si/">link.</a></p>
-    <footer>
-    <center><button><a href="GymFreak.html">Home Page</a></button></center>
-    </footer>
+        <h3>1. Whey chocolate flavor</h3>
+        <img src="slike/whey.jpg" alt="whey" width="250" height="250"> 
+        <h3>2. Whey strawberry flavour</h3>
+        <img src="slike/whey2.jpg" alt="whey2" width="250" height="250">
+        <h3>3. Whey vanilla flavour</h3>
+        <img src="slike/whey3.jpg" alt="whey3" width="250" height="250">
+        <p>For more flavours click on this <a href="https://ba.proteini.si/">link.</a></p>
+        <footer>
+            <center><button><a href="GymFreak.html">Home Page</a></button></center>
+        </footer>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
