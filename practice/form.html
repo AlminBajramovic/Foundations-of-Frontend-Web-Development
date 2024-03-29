@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="send.php">
+        <table cellspacingg="2" cellpadding="2"  width="600">
+            <tr>
+                <td>First Name:</td>
+                <td>
+                    <input type="text" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>
+                    <input type="text" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Work place:
+                </td>
+                <td>
+                    <select name="place" id="One">
+                        <option value="DR">Driver</option>
+                        <option value="IT">IT</option>
+                        <option value="LE">Leader</option>
+                        <option value="PM">Piroman</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Job type:
+                </td>
+                <td>
+                    <input type="checkbox">Full-time
+                    <input type="checkbox">Part-Time
+                    <input type="checkbox">Freelancer
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Employment status:
+                </td>
+                <td>
+                    <input type="radio" value="employed" name="status">Employed
+                    <input type="radio" value="Unemployed" name="status">Unemployed
+                    <input type="radio" value="Student" name="status">Student
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Additional:
+                </td>
+                <td>
+                    <textarea name="add" id="add" cols="30" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" >
+                    <input type="reset">
+                </td>
+            </tr>
+        </table>
+    
+    </form>
+</body>
+</html>

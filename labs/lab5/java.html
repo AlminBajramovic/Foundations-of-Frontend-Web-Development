@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .sort-icon {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<table id="userTable">
+    <thead>
+        <tr>
+            <th onclick="sortTable(0)">ID<span class="sort-icon">▲</span></th>
+            <th onclick="sortTable(1)">Name<span class="sort-icon">▲</span></th>
+            <th onclick="sortTable(2)">Country<span class="sort-icon">▲</span></th>
+            <th onclick="sortTable(3)">Email<span class="sort-icon">▲</span></th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="userRows">
+        <!-- JavaScript will populate this area with users -->
+    </tbody>
+</table>
+
+
+<div id="myModal" style="display: none;">
+    <p>You clicked on the user: <span id="clickedUserName"></span></p>
+</div>
+
+<script>
+    const users = [
+        { id: 1, name: 'Osman Udvinčić', country: 'USA', email: 'osman@example.com' },
+        { id: 2, name: 'Almin Bajramović', country: 'France', email: 'almin@example.com' },
+        { id: 3, name: 'Muhamed Sinanović', country: 'Russia', email: 'muše@example.com' },
+        { id: 4, name: 'Edisa Taletović', country: 'Bosnia', email: 'edisa@example.com' },
+        { id: 5, name: 'Šejla Hasić', country: 'Germany', email: 'šeki@example.com' },
+        { id: 6, name: 'Namik Bilajac', country: 'Slovenia', email: 'namik@example.com' },
+    ];
+
+    const table = document.getElementById('userTable');
+    const userRows = document.getElementById('userRows');
+    let ascending = true;
+
+    function populateTable() {
+        userRows.innerHTML = '';
+        users.forEach(user => {
+            const row = `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.country}</td><td>${user.email}</td><td><button onclick="showModal('${user.name}')">Click</button></td></tr>`;
+            userRows.innerHTML += row;
+        });
+    }
+
+    function sortTable(column) {
+        users.sort((a, b) => {
+            const aValue = a[Object.keys(a)[column]];
+            const bValue = b[Object.keys(b)[column]];
+            return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+        });
+        ascending = !ascending;
+        populateTable();
+    }
+
+    function showModal(userName) {
+        const modal = document.getElementById('myModal');
+        const clickedUserName = document.getElementById('clickedUserName');
+        clickedUserName.textContent = userName;
+        modal.style.display = 'block';
+    }
+
+    populateTable();
+</script>
+
+</body>
+</html>

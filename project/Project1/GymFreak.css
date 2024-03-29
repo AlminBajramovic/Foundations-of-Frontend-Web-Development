@@ -51,7 +51,7 @@ footer input[type="text"] {
     box-sizing: border-box;
 }
 .header_2{
-    background: black;
+    background:rgb(36,36,36);
 }
 
 footer button {
@@ -75,4 +75,7 @@ footer p {
 p {
     max-width: 95%; 
     margin: 0 auto; 
+}
+.nav-item{
+    color: white;
 }
