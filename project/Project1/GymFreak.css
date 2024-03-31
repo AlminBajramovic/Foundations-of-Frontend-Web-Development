@@ -51,7 +51,7 @@ footer input[type="text"] {
     box-sizing: border-box;
 }
 .header_2{
-    background:rgb(36,36,36);
+    background:#222223;
 }
 
 footer button {
@@ -75,7 +75,30 @@ footer p {
 p {
     max-width: 95%; 
     margin: 0 auto; 
+    font-family: Montserrat;
+    font-size:larger;
 }
-.nav-item{
+a.nav-link{
     color: white;
+}
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 18px;
+    }
+}
+.navbar-brand:hover {
+    color: black;
 }
