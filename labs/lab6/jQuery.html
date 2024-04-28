@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Employees Table</title>
+    <link rel="stylesheet" href="jQuery.css">
+    <link rel="stylesheet" href="jQuery.js">
+</head>
+<body>
+    <input type="text" id="search" placeholder="Search by name...">
+    <table id="employees-table">
+        <thead>
+            <tr>
+                <th data-sort="id">Employee ID</th>
+                <th data-sort="name">Name</th>
+                <th data-sort="department">Department</th>
+                <th data-sort="position">Position</th>
+                <th data-sort="salary">Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+    <div id="employee-modal" class="modal">
+        <!-- Modal content goes here -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
