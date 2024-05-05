@@ -102,3 +102,9 @@ body {
 .navbar-brand:hover {
     color: black;
 }
+#Email, #Password {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
