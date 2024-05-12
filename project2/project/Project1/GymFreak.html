@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+<body class="light-mode">
     <div class="header_2"><img src="slike/Gym.PNG" alt="Logo" width="600" height="200"></div>
     <div class="bcg-full">
         <nav class="navbar navbar-expand-lg navbar-white bg-dark justify-content-center">
@@ -38,6 +38,17 @@
                         </li>
                     </ul>
                 </div>
+                <div class="d-flex">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            More Options
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <li><button class="dropdown-item" id="toggleTheme">Toggle Theme</button></li>
+                            <li><button class="dropdown-item" id="toggleFAQs">FAQs</button></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="container text-left">
@@ -56,33 +67,37 @@
             <center><h3>Have some sugesstions about our website?<br> Feel free to let us know in the section below!</h3> <br>   
             <div><textarea name="UserNotes" id="UserNotes" cols="30" rows="10"></textarea></div><p><button id="submitBtn">submit</button></p> </center>
         </div>
-        <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="thankYouModalLabel">Thank You!</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Thank you for your feedback!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="orderModalLabel">Order Confirmation</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Your order will arrive soon!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         
+        <div id="faqsSection" style="display: none;">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">Are your supplements safe to use?</div>
+                    <div class="faq-answer">Yes, all our supplements undergo rigorous testing to ensure safety and quality.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">How long does shipping take?</div>
+                    <div class="faq-answer">Shipping times vary depending on your location. Typically, orders arrive within 5-7 business days.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">Do you offer international shipping?</div>
+                    <div class="faq-answer">Yes, we offer international shipping to many countries. Please check our shipping policies for more information.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">What payment methods do you accept?</div>
+                    <div class="faq-answer">We accept all major credit cards, PayPal, and bank transfers.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">Can I return a product if I'm not satisfied?</div>
+                    <div class="faq-answer">Yes, we offer a 30-day money-back guarantee on all purchases.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">Do you offer discounts for bulk orders?</div>
+                    <div class="faq-answer">Yes, we offer discounts on bulk orders. Please contact our customer service for more information.</div>
+                </div>
+            </div>
+        </div>
+
         <footer class="container">
             <h3>Want to order? <br>
             Fill in the survey!</h3>
@@ -206,7 +221,7 @@
             });
         });
 
-        function checkPasswordStrength(password) {
+        function checkPasswordStrength(password) {b
             var weakCriteria = 6; 
             var mediumCriteria = 10; 
 
@@ -217,6 +232,18 @@
             } else {
                 return 'Strong';
             }
+        }
+
+        $('#toggleFAQs').click(function() {
+            $('#faqsSection').toggle();
+        });
+
+        $('#toggleTheme').click(function() {
+            $('body').toggleClass('dark-mode');
+        });
+
+        function toggleAnswer(element) {
+            $(element).next('.faq-answer').slideToggle();
         }
     </script>
 </body>
