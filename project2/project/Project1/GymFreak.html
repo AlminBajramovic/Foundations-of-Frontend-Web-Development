@@ -6,9 +6,10 @@
     <title>GymFreak</title>
     <link rel="stylesheet" href="GymFreak.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 <body class="light-mode">
     <div class="header_2"><img src="slike/Gym.PNG" alt="Logo" width="600" height="200"></div>
@@ -44,6 +45,7 @@
                             More Options
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="comments.html">User Comments</a></li>
                             <li><button class="dropdown-item" id="toggleTheme">Toggle Theme</button></li>
                             <li><button class="dropdown-item" id="toggleFAQs">FAQs</button></li>
                         </ul>
@@ -64,8 +66,11 @@
             <video width="500" height="500" controls="controls" src="slike/You NEED Supplements to Build Muscle! (FACT).mp4"></video>
             <center><p> Credits to ATHLEAN-X for the vide. <br>
              You can find this video on youtube on <a href="https://www.youtube.com/watch?v=1E9pRu43A-8">ATHLEAN-X.</a></p></center>
-            <center><h3>Have some sugesstions about our website?<br> Feel free to let us know in the section below!</h3> <br>   
-            <div><textarea name="UserNotes" id="UserNotes" cols="30" rows="10"></textarea></div><p><button id="submitBtn">submit</button></p> </center>
+            <center><h3>Have some suggestions about our website?<br> Feel free to let us know in the section below!</h3> <br>   
+            <form id="suggestionForm">
+                <div><textarea name="UserNotes" id="UserNotes" cols="30" rows="10"></textarea></div>
+                <p><button type="submit" id="submitBtn">Submit</button></p>
+            </form></center>
         </div>
         
         <div id="faqsSection" style="display: none;">
@@ -158,70 +163,52 @@
                 var strength = checkPasswordStrength($(this).val());
                 $('#passwordStrength').html('Password Strength: ' + strength);
             });
-            $('#orderForm').validate({
-                rules: {
-                    Name: {
-                        required: true
-                    },
-                    Surname: {
-                        required: true
-                    },
-                    Country: {
-                        required: true
-                    },
-                    City: {
-                        required: true
-                    },
-                    ZipCode: {
-                        required: true
-                    },
-                    Phone: {
-                        required: true
-                    },
-                    Email: {
-                        required: true,
-                        email: true
-                    },
-                    Password: {
-                        required: true,
-                        minlength: 6
-                    }
-                },
-                messages: {
-                    Name: {
-                        required: "Please enter your name"
-                    },
-                    Surname: {
-                        required: "Please enter your surname"
-                    },
-                    Country: {
-                        required: "Please enter your country"
-                    },
-                    City: {
-                        required: "Please enter your city"
-                    },
-                    ZipCode: {
-                        required: "Please enter your zip code"
-                    },
-                    Phone: {
-                        required: "Please enter your phone number"
-                    },
-                    Email: {
-                        required: "Please enter your email address",
-                        email: "Please enter a valid email address"
-                    },
-                    Password: {
-                        required: "Please enter a password",
-                        minlength: "Password must be at least 6 characters long"
-                    }
-                },
-                submitHandler: function(form) {
-                    $('#orderModal').modal('show');
+
+            $('#orderForm').submit(function(event) {
+                event.preventDefault(); 
+
+                if ($(this).valid()) {
+                    var formData = $(this).serialize();
+
+                    $.ajax({
+                        url: 'comments.html', 
+                        type: 'POST',
+                        data: formData,
+                        success: function(response) {
+                            
+                            $('#orderForm')[0].reset();
+                            toastr.success('Order submitted successfully!');
+                        },
+                        error: function(xhr, status, error) {
+                            
+                            console.error('Error submitting form: ' + error);
+                            console.error(xhr.responseText);
+                            toastr.error('Error submitting order. Please try again later.');
+                        }
+                    });
+                } else {
+                    toastr.error('Please fill in all fields.');
                 }
+            });
+
+            $('#suggestionForm').submit(function(event) {
+                event.preventDefault(); 
+
+                
+                toastr.success('Suggestion submitted successfully!');
+               
+            });
+
+            $('#toggleFAQs').click(function() {
+                $('#faqsSection').toggle();
+            });
+
+            $('#toggleTheme').click(function() {
+                $('body').toggleClass('dark-mode');
             });
         });
 
-        function checkPasswordStrength(password) {b
+        function checkPasswordStrength(password) {
             var weakCriteria = 6; 
             var mediumCriteria = 10; 
 
@@ -233,14 +220,6 @@
                 return 'Strong';
             }
         }
-
-        $('#toggleFAQs').click(function() {
-            $('#faqsSection').toggle();
-        });
-
-        $('#toggleTheme').click(function() {
-            $('body').toggleClass('dark-mode');
-        });
 
         function toggleAnswer(element) {
             $(element).next('.faq-answer').slideToggle();
