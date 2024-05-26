@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="comments.css">
     <title>User Comments</title>
 </head>
 <body>
@@ -16,12 +17,48 @@
                 url: 'gymfreak.json',
                 dataType: 'json',
                 success: function(data) {
-                    $.each(data, function(index, comment) {
-                        $('#commentsContainer').append('<div><strong>' + comment.name + '</strong>: ' + comment.comment + '</div>');
+                    data.forEach(comment => {
+                        const commentDiv = $(`
+                            <div class="comment">
+                                <strong>${comment.name}</strong>: 
+                                <span class="comment-text">${comment.comment}</span>
+                                <input type="text" class="edit-input" value="${comment.comment}">
+                                <button class="edit-button">Edit</button>
+                                <button class="delete-button">Delete</button>
+                            </div>
+                        `);
+
+                        const commentText = commentDiv.find('.comment-text');
+                        const editInput = commentDiv.find('.edit-input');
+                        const editButton = commentDiv.find('.edit-button');
+                        const deleteButton = commentDiv.find('.delete-button');
+
+
+                        editButton.click(function() {
+                            commentText.hide();
+                            editInput.show().focus(); 
+                            editButton.hide();
+                        });
+
+                     
+                        editInput.blur(function() {
+                            const newComment = editInput.val(); 
+                            commentText.text(newComment); 
+                            commentText.show(); 
+                            editInput.hide(); 
+                            editButton.show(); 
+                        });
+
+                     
+                        deleteButton.click(function() {
+                            commentDiv.remove(); 
+                        });
+
+                        $('#commentsContainer').append(commentDiv);
                     });
                 },
-                error: function(xhr, status, error) {
-                    console.error('Error loading comments:', error);
+                error: function() {
+                    console.error('Error loading comments');
                 }
             });
         });
