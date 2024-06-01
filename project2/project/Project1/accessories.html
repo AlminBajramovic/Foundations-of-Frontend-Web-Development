@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACCESSORIES</title>
+    <link rel="stylesheet" href="protein.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+</head>
+<body>
+    <div style="background-color: black;">
+        <div class="header_2"><img src="slike/Gym.PNG" alt="Logo"></div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="GymFreak.html">GymFreak</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="protein.html">PROTEIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="creatin.html">CREATIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vitamins.html">VITAMINS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="snacks.html">SNACKS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pre-workout.html">PRE-WORKOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="accessories.html">ACCESSORIES</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="bcg-full">
+        <br><h1>GymFreak</h1><br>
+        <h2>ACCESSORIES</h2>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary mx-2" onclick="scrollToSection('shakers')">Shakers</button>
+            <button class="btn btn-primary mx-2" onclick="scrollToSection('straps')">Straps</button>
+            <button class="btn btn-primary mx-2" onclick="scrollToSection('belts')">Belts</button>
+            <button class="btn btn-primary mx-2" onclick="scrollToSection('gloves')">Gloves</button>
+        </div>
+        <br>
+        <div id="shakers">
+            <h3>1. Shakers</h3>
+            <img src="slike/shaker.PNG" alt="shaker" width="250" height="250" data-bs-toggle="modal" data-bs-target="#shakerModal"> 
+            <p>High-quality shakers for your protein drinks.</p>
+        </div>
+        <br>
+        <div id="straps">
+            <h3>2. Straps</h3>
+            <img src="slike/gurtne.PNG" alt="straps" width="250" height="250" data-bs-toggle="modal" data-bs-target="#strapsModal">
+            <p>Durable straps to support your lifts.</p>
+        </div>
+        <br>
+        <div id="belts">
+            <h3>3. Belts</h3>
+            <img src="slike/pojas.PNG" alt="belt" width="250" height="250" data-bs-toggle="modal" data-bs-target="#beltModal">
+            <p>Sturdy belts to protect your back during heavy lifts.</p>
+        </div>
+        <br>
+        <div id="gloves">
+            <h3>4. Gloves</h3>
+            <img src="slike/rukavice.PNG" alt="gloves" width="250" height="250" data-bs-toggle="modal" data-bs-target="#glovesModal">
+            <p>Comfortable gloves to enhance your grip.</p>
+        </div>
+        <p>For more accessories, click on this <a href="https://ba.proteini.si/">link.</a></p>
+        <footer>
+            <button><a href="GymFreak.html" style="text-decoration: none; color: inherit;">Home Page</a></button>
+        </footer>
+    </div>
+    <div class="modal fade" id="shakerModal" tabindex="-1" aria-labelledby="shakerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shakerModalLabel">Shakers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="slike/shaker.jpg" alt="shaker" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="more_shakers.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="strapsModal" tabindex="-1" aria-labelledby="strapsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="strapsModalLabel">Straps</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="slike/straps.jpg" alt="straps" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="more_straps.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="beltModal" tabindex="-1" aria-labelledby="beltModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="beltModalLabel">Belts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="slike/belt.jpg" alt="belt" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="more_belts.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="glovesModal" tabindex="-1" aria-labelledby="glovesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="glovesModalLabel">Gloves</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="slike/gloves.jpg" alt="gloves" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="more_gloves.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
